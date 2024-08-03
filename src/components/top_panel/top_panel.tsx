@@ -13,8 +13,8 @@ import { opClMenu, setWindowSize } from "../../Slice"
 
 export const TopPanel = () => {
     const [act, setAct] = useState(false)
-    const [menu_to_mobile, setMobMenu] = useState(false)
     const typedSelector: TypedUseSelectorHook<RootState> = useSelector
+    const menu_to_mobile = typedSelector(state => state.global_store.openMobileMenu)
     const languagePack = typedSelector(state => state.global_store.languagePack)
     const prod = useRef<HTMLDivElement>(null)
     const useTypedDispatch = () => useDispatch<TypedDispatch>()
@@ -41,7 +41,6 @@ export const TopPanel = () => {
 
             return () => clearTimeout(init)
         }
-        if (windowSize.width<1080) {setMobMenu(false)};
     }, [act])
     const Products = () => {
         const images = [agg, tg, business]
@@ -111,7 +110,6 @@ export const TopPanel = () => {
                     <button>{languagePack.top_panel.authorization}</button>}
                 {(windowSize.width < 1080) &&
                     <div onClick={() => {
-                        setMobMenu(!menu_to_mobile);
                         dispatch(opClMenu(null))
                     }}
                         style={{ boxSizing: 'content-box', width: '100%' }}><OpenClosMenu /></div>}
