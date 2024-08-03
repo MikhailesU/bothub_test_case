@@ -1,0 +1,207 @@
+@mixin isline($row)
+  display: flex
+  flex-direction: $row
+
+@mixin clear_margin()
+  margin-block-start: 0em
+  margin-block-end: 0em
+  margin-inline-start: 0px
+  margin-inline-end: 0px
+  padding-inline-start: 0px
+
+@mixin block_template()
+  border-radius: 12px
+  box-sizing: border-box
+  width: 100%
+  height: 100%
+
+$blue: #1C64F2
+$dark: #121825
+$grey: #374151
+
+@function adaptSize($size)
+   @return calc($size*var(--screen-factor))
+
+pre, code
+    flex-wrap: wrap
+    text-wrap: wrap
+
+.messages
+    overflow-y: scroll
+    overflow-x: hidden
+    position: absolute
+    top: 15%
+    height: 68%
+    width: 100%
+    text-align: left
+    @include isline(column)
+    
+    &>.assistant, &>.user
+        display: inline-block
+        list-style-type: none
+        font-size: adaptSize(16px)
+        padding: adaptSize(8px)
+        margin: adaptSize(15px)
+        margin-bottom: adaptSize(40px)
+        width: 92%
+        &>p
+            vertical-align: top
+            margin-left: adaptSize(50px)
+        &>div
+            @include isline(row)
+            align-items: flex-end
+
+    &>.assistant>div>span
+        text-wrap: wrap
+        max-width: 80%
+        flex-wrap: wrap
+        margin-top: adaptSize(20px)
+        padding: 12px
+        background-color: #313E62
+        border-radius: 10px 10px 10px 0px
+        margin-left: adaptSize(10px)
+
+    &>.user>div
+        justify-content: end
+        position: relative
+        &>p
+            text-wrap: wrap
+            flex-wrap: wrap
+            max-width: 60%
+            margin-right: adaptSize(10px)
+            padding: adaptSize(12px)
+            background-color: $blue
+            border-radius: 10px 10px 0px 10px
+    &>p
+        margin-bottom: adaptSize(50px)
+        margin-left: adaptSize(50px)
+    & img
+        width: adaptSize(40px)
+        height: auto
+.old, .new
+    transition: 0.7s ease-out
+    transition-property: transform, opacity, margin
+
+.old
+    opacity: 1
+    transform: none
+    position: relative
+    margin-bottom: adaptSize(10px) 
+
+.new
+    opacity: 0
+    position: absolute
+    transform: translate(0, 200%)
+    margin-bottom: 0
+
+.chatborder
+    height: adaptSize(600px)
+    width: adaptSize(750px)
+    @media screen and (max-width: 660px) 
+        height: adaptSize(422px)
+        width: adaptSize(540px)
+    padding: 1px
+    border-radius: 24px
+    background: radial-gradient(70% 70% at 50% 50%, #017cff 35%, #d901ff 40%, $grey 80%)
+    animation: rotate 20s linear infinite
+    background-size: 300% 300%
+    &>div
+        box-sizing: border-box
+        width: 100%
+        height: 100%
+        background-color: $dark
+        border-radius: 24px
+    & .assistant, & .chatheader
+        font-size: adaptSize(16px)
+        line-height: adaptSize(22px)
+
+@keyframes rotate 
+    0% 
+        background-position: 150% 0%
+    25% 
+        background-position: 0% 150%
+    50% 
+        background-position: 150% 0%
+    75% 
+        background-position: 0% -150%
+    100% 
+        background-position: -150% 0%
+    
+
+.chat
+    height: 100%
+    background: radial-gradient(20% 10% at 20% 98%, #d901ff2f 25%, #12182571 60%), radial-gradient(30% 20% at 5% 98%, #017cff80 30%, #12182571 70%), radial-gradient(30% 20% at 0% 90%, #121825a2 25%, #121825 60%)
+    border-radius: 24px
+    position: relative
+    width: 100%
+
+.chatheader
+    @include isline(row)
+    justify-content: space-between
+    align-items: center
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    border-bottom: 1px solid $grey
+    height: 10%
+    padding: adaptSize(15px)
+    &>div
+        @include isline(row)
+        &>label
+            cursor: pointer
+            height: adaptSize(20px)
+            width: adaptSize(20px)
+            background-color: #222b44
+            border: 1px solid $grey
+    & img
+        width: adaptSize(50px)
+        height: auto
+            
+
+input[type="checkbox"]
+    appearance: none
+    height: 0
+    width: 0
+    margin: 0
+    &:checked
+        cursor: pointer
+        appearance: auto
+        height: adaptSize(20px)
+        width: adaptSize(20px)
+        border: 1px solid $grey
+        background-color: $blue
+        z-index: 200
+
+.inputRow
+    display: flex
+    position: absolute
+    bottom: 0
+    left: 0
+    right: 0
+    z-index: 100
+    width: 92%
+    height: adaptSize(60px)
+    padding: 4%
+    &>textarea
+        padding: 3% adaptSize(50px) adaptSize(10px) adaptSize(20px)
+        resize: none
+        word-break: break-all
+        width: 100%
+        border-radius: 10px
+        border: 1px solid #313E62
+        background: $dark
+        font-size: adaptSize(16px)
+        color: #fff
+        &:hover, &:focus
+            border: 1px solid #2145a7
+            outline: 1px solid #2145a7
+    &>img
+        cursor: pointer
+        position: absolute
+        right: 6%
+        top: 50%
+        transform: translateY(-50%)
+        z-index: 500
+        width: adaptSize(40px)
+        height: auto

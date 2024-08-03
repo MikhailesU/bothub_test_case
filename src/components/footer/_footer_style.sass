@@ -1,0 +1,70 @@
+@mixin isline($row)
+    display: flex
+    flex-direction: $row
+
+@mixin clear_margin()
+  margin-block-start: 0em
+  margin-block-end: 0em
+  margin-inline-start: 0px
+  margin-inline-end: 0px
+  padding-inline-start: 0px
+
+$blue: #1C64F2
+$dark: #121825
+$grey: #374151
+
+@function adaptSize($size)
+   @return calc($size*var(--screen-factor))
+
+.footer
+    @media screen and (min-width: 1081px) 
+      @include isline(row)
+      justify-content: center
+    @media screen and (max-width: 1080px) 
+      @include isline(column)
+      justify-content: start
+      padding: 3.5vw
+    background: radial-gradient(51.67% 103.33% at 50% -3.33%, rgba(28, 100, 242, 0.35) 0%, rgba(8, 16, 39, 0) 53.98%)
+    border-top: 1px solid #222B44
+    &>div
+        margin-top: 50px 
+    &>.links
+        @media screen and (min-width: 1020px) 
+            padding-left: 10vw
+            gap: 3.5vw
+        @media screen and (min-width: 661px) 
+            @include isline(row)
+            justify-content: space-between
+        @media screen and (max-width: 660px)
+            @include isline(column)
+        &>ul
+           list-style-type: none
+           @include clear_margin()
+           display: block
+           &>li
+            margin-bottom: 25px
+            &>p
+              display: inline-block
+              &>svg
+                  margin-right: 1vw
+                  vertical-align: middle
+    margin-bottom: 50px
+.links_header
+            color: #616D8D
+
+.copyright
+    &>ul
+       @include clear_margin()
+       &>li
+         list-style-type: none
+         margin-bottom: 15px
+         margin-top: 10px
+         text-align: left
+
+.lnk
+    cursor: pointer
+    &:hover
+        color: $blue
+        &>p>svg
+            &>path, & circle, & rect, & .habr
+              fill: $blue

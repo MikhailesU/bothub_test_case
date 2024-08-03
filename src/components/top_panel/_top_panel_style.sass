@@ -1,0 +1,232 @@
+@mixin isline($row)
+  display: flex
+  flex-direction: $row
+
+@mixin clear_margin()
+  margin-block-start: 0em
+  margin-block-end: 0em
+  margin-inline-start: 0px
+  margin-inline-end: 0px
+  padding-inline-start: 0px
+
+@mixin block_template()
+  border-radius: 12px
+  box-sizing: border-box
+  width: 100%
+  height: 100%
+
+$blue: #1C64F2
+$dark: #121825
+$grey: #374151
+$toast: #222b44
+
+@function adaptSize($size)
+   @return calc($size*var(--screen-factor))
+
+.top_panel
+    @include isline(row)
+    justify-content: space-around
+    gap: 14px
+    max-height: 40px
+    width: 100%
+    position: fixed
+    top: 0
+    left: 0
+    right: 0
+    background-color: #121825ef
+    border-bottom: 1px solid #222B44
+    z-index: 9999
+    padding: 25px
+    padding-left: adaptSize(25px)
+    &>div
+        display: flex
+        justify-content: space-around
+        gap: 24px
+        align-items: center
+        &>li
+            list-style-type: none
+            cursor: pointer
+            &:hover
+                color: #006effe1
+    
+.top_panel_left
+    &>div
+        padding-right: 10px
+        border-right: 1px solid #222B44
+        opacity: 1
+        transition: opacity 0.2s linear
+        transition-property: transform, opacity
+        cursor: pointer
+        &:hover
+            opacity: .4
+    &>h4
+        cursor: pointer
+        &:hover
+            color: #006effe1
+    & img
+      width: adaptSize(100px)
+      height: auto
+
+.language_selector
+  @include isline(row)
+  align-items: center
+  justify-content: center
+  position: relative
+  font-family: Arial
+  background-color: $dark
+  color: white
+  outline: none
+  border: none
+  cursor: pointer
+  margin-right: 10px
+  font-size: adaptSize(20px)
+  &:hover, &:focus
+    color: $blue
+    &>svg
+      &>path[stroke="white"]
+        stroke: $blue
+      &>path[fill="white"]
+        fill: $blue
+  &>svg
+      width: adaptSize(20px)
+      height: auto
+      margin: 5px
+      margin-top: 0px
+  & .arrow
+    transform: none
+    transition: transform 0.2s linear
+  &:focus
+    & .arrow
+      transform: rotate(-180deg)
+
+    
+
+.selection_menu
+    position: fixed
+    top: 90px
+    @media screen and (max-width: 1080px) and (min-width: 660px)
+           right: 37%
+    right: 24%
+    opacity: .4
+    transform: translateY(-50%) scale(0.3)
+    transition: 0.2s linear
+    transition-property: transform, opacity
+    cursor: pointer
+    background-color: $toast
+    padding: 10px
+    border-radius: 8px
+    border: 1px solid $grey
+    &>ul
+        cursor: pointer
+        list-style-type: none
+        @include clear_margin()
+        &>li
+          margin: 15px
+          &:hover
+             color: $blue
+
+.products_header
+  &>svg
+      vertical-align: middle
+      margin-left: 5px
+  &:hover, &:focus
+    color: $blue
+    &>svg>path
+        stroke: $blue
+  & .arrow
+    transform: none
+    transition: transform 0.2s linear
+  &:focus
+    & .arrow
+      transform: rotate(-180deg)
+
+.products
+  display: grid
+  grid-template-columns: repeat(2, 1fr)
+  grid-auto-rows: 1fr
+  gap: adaptSize(30px)
+  background-color: $toast
+  padding: 25px
+  @media screen and (min-width: 1081px) 
+    position: fixed
+    top: 10%
+    left: 24%
+    border-radius: 8px
+    border: 1px solid $grey
+  @media screen and (max-width: 1080px)
+    width: 90vw
+    margin-right: 5vw
+    margin-left: 5vw
+    position: relative
+    border: none
+  @media screen and (max-width: 660px)
+    gap: 10px
+    grid-template-columns: 1fr
+    grid-auto-rows: 1fr
+  opacity: .2
+  transform: translate(-50%, -50%) scale(0.1)
+  &>div
+    @include isline(row)
+    align-items: center
+    gap: 5px
+    padding: 5px
+    cursor: pointer
+    &:hover
+      background-color: #323e5f
+    & h4
+      margin-bottom: 2%
+    &>img
+      width: 11%
+      height: auto
+      margin-right: 10px
+    & p
+      font-size: adaptSize(12px)
+      font-weight: 400
+      line-height: adaptSize(16px)
+      text-align: left
+
+.products_container
+  margin-top: 3% 
+  width: 100vw
+  display: flex
+  justify-content: center
+  align-items: center
+
+.mobile_panel
+  @include isline(column)
+  position: absolute
+  left: 0
+  top: 100px
+  align-content: center
+  justify-content: center
+  width: 100%
+  padding-top: 3%
+  &>span
+    & li
+      @include clear_margin()
+      list-style-type: none
+      margin-top: 5%
+    & ul
+      @include clear_margin()
+    @include isline(column)
+    align-items: flex-start
+    &>h4, & li
+      text-align: left
+      cursor: pointer
+      margin-left: 25px
+      &:hover
+        color: #006effe1
+  &>button
+    box-sizing: border-box
+    width: 80%
+    margin: 5%
+  & .arrow
+    width: adaptSize(16px)
+    height: auto
+
+h4
+  @include clear_margin()
+  font-size: adaptSize(12px)
+  font-size: adaptSize(18px)
+  font-weight: 600
+  

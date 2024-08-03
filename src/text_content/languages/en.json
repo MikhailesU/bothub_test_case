@@ -1,0 +1,144 @@
+{
+    "top_panel": {
+        "products_header": "Products",
+        "headers": [
+            "Packages",
+            "API",
+            "Blog"
+        ],
+        "additionaly_headers": [
+            "Models",
+            "Academy"
+        ],
+        "products": [
+            {
+                "header": "Neural network aggregator BotHub",
+                "text": "ChatGPT based on OpenAI versions 3.5 and 4.0"
+            },
+            {
+                "header": "Telegram bot",
+                "text": "A convenient bot in Telegram that is always at hand"
+            },
+            {
+                "header": "Business bot",
+                "text": "ChatGPT for effectively solving business problems"
+            }
+        ],
+        "authorization": "Аuthorization"
+    },
+    "annotation": {
+        "desktop": {
+            "annotation_header": "ChatGPT: your smart assistant",
+            "annotation_text": "Experiment with ChatGPT-4, Midjourney and Claude in one place. No VPN or subscription fee. Create content, process data and get answers to questions through a user-friendly interface!",
+            "button": "Start work"
+        },
+        "mobile": {
+            "annotation_header": "ChatGPT and Midjourney: the path to effective solution of your tasks",
+            "annotation_text": "Discover the potential of neural networks with our aggregator to improve dialogues and grow your business. Full accessibility without VPN and paid registrations!",
+            "button": "Start work"
+        }
+    },
+    "chat": {
+        "context": "Save context",
+        "bot_question": "Hello! How can I help you?",
+        "human_answer": "Hello bot",
+        "placeholder": "Ask something..."
+    },
+    "possibilities_header": "ChatGPT features",
+    "possibilities": [
+        {
+            "header": "Creating engaging content",
+            "text": "Have you ever dreamed of writing an interesting book or article, but didn't know where to start? ChatGPT does an excellent job of generating texts on any topic. Describe your idea to him and he will create captivating content that will capture the attention of readers."
+        },
+        {
+            "header": "Solving complex problems",
+            "text": "Math or programming problems sometimes seem like unsolvable puzzles. But not for ChatGPT! He will analyze the problem and offer a step-by-step solution. You'll quickly understand complex concepts with his easy-to-understand explanations."
+        },
+        {
+            "header": "Code development and debugging",
+            "text": "ChatGPT can help you write and fix your code. It will analyze your code, find errors and suggest ways to fix them. ChatGPT is also able to independently write code according to your instructions - for example, to create a website or application."
+        },
+        {
+            "header": "Translation of texts between languages",
+            "text": "ChatGPT does an excellent job of translating texts into dozens of languages. Now you don't need to waste time looking for a translator - just ask ChatGPT and it will instantly translate any text into the language you need."
+        },
+        {
+            "header": "Help with writing a resume",
+            "text": "Are you looking for a new job and need a resume that will impress the employer? ChatGPT will help you create a resume that perfectly matches your skills and experience. Describe to him the desired vacancy - and receive a ready-made resume in the required format."
+        },
+        {
+            "header": "Virtual assistant in life",
+            "text": "Don't know how to cook a new dish or plan a vacation? Just ask ChatGPT! It will act as a virtual assistant in everyday tasks, providing useful information and recommendations in any area of ​ life."
+        }
+    ],
+    "midjourney": {
+        "header": "Generating images with Midjourney",
+        "text": "MidJourney is a tool for creating unique images. Our algorithms will help you bring your idea to life. Start generating images with MidJourney now! Click the button below to start creating.",
+        "button": "Try Midjorney"
+    },
+    "footer": {
+        "copyright": [
+            "ООО «Ботхаб» ОГРН 1236300016259",
+            "@BotHub 2023",
+            "Terms of use"
+        ],
+        "resourse_first": [
+            {
+                "header": "Information",
+                "elements": [
+                    "Main page",
+                    "Rates",
+                    "Contacts",
+                    "Our capabilities",
+                    "Neural network models",
+                    "About Us",
+                    "For investors"
+                ]
+            },
+            {
+                "header": "Our products",
+                "elements": [
+                    "ChatGPT for business",
+                    "Neural network aggregator",
+                    "ChatGPT on Telegram"
+                ]
+            }
+        ],
+        "resourse_second": [
+            {
+                "header": "Links",
+                "elements": [
+                    {
+                        "image": 0,
+                        "link": "Community in Telegram"
+                    },
+                    {
+                        "image": 1,
+                        "link": "Telegram bot"
+                    },
+                    {
+                        "image": 2,
+                        "link": "email@bothub.chat"
+                    }
+                ]
+            },
+            {
+                "header": "Блог",
+                "elements": [
+                    {
+                        "image": 3,
+                        "link": "Our blog"
+                    },
+                    {
+                        "image": 4,
+                        "link": "Habr"
+                    },
+                    {
+                        "image": 5,
+                        "link": "Telegram"
+                    }
+                ]
+            }
+        ]
+    }
+}

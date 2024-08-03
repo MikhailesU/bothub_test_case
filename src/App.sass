@@ -1,0 +1,184 @@
+@use './components/top_panel/_top_panel_style'
+@use './components/chat/_chat_style'
+@use './components/footer/_footer_style'
+@use './components/possibilities/_possibilities_style'
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap')
+
+@mixin isline($row)
+  display: flex
+  flex-direction: $row
+
+@mixin clear_margin()
+  margin-block-start: 0em
+  margin-block-end: 0em
+  margin-inline-start: 0px
+  margin-inline-end: 0px
+  padding-inline-start: 0px
+
+@mixin block_template()
+  border-radius: 12px
+  box-sizing: border-box
+  width: 100%
+  height: 100%
+
+@function adaptSize($size)
+  @return calc($size * var(--screen-factor))
+
+$blue: #1C64F2
+$dark: #121825
+$grey: #374151
+
+h1
+    font-weight: 700
+    font-size: adaptSize(46px)
+    line-height: adaptSize(60px)
+    @media screen and (min-width: 1081px)
+      text-align: left
+    @media screen and (max-width: 1080px)
+      text-align: center
+h2
+    text-align: center
+    font-weight: 600
+    font-size: adaptSize(34px)
+    line-height: adaptSize(44px)
+
+
+.preview
+    background: radial-gradient(20% 30% at 70% 30%, #d901ff36 20%, #1218251c 100%), radial-gradient(20% 35% at 55% 35%, #0151ff34 30%, #12182505 100%)
+    box-sizing: border-box
+    height: 100%
+    padding: adaptSize(50px)
+    &>div
+      width: 100%
+      @media screen and (min-width: 1081px) 
+        @include isline(row)
+      @media screen and (max-width: 1080px) 
+        @include isline(column)
+      justify-content: center
+      align-items: center
+      gap: 5%
+      height: 80%
+      margin-top: 8%
+      margin-bottom: 100px
+      text-decoration: none
+
+
+.annotation
+    margin-bottom: 10px
+    @media screen and (min-width: 1081px) 
+        width: 28%
+    @media screen and (max-width: 1080px) 
+        width: 100%
+        @include isline(column)
+        align-items: center
+        margin-bottom: 50px 
+    height: auto
+    &>p
+        @media screen and (min-width: 1081px) 
+            text-align: left
+        @media screen and (max-width: 1080px) 
+            text-align: center
+        font-weight: 500
+        margin-bottom: 50px
+    
+
+p
+   @include clear_margin()
+   font-weight: 400
+   font-size: adaptSize(16px)
+   line-height: adaptSize(22px)
+    
+.backLattice
+    position: absolute
+    z-index: -2
+    width: 100%
+    top: 0
+    left: 0
+    height: 90%
+    opacity: .3
+
+body
+    padding-top: 50px
+    background-color: #0E0C15
+    color: #fff
+    font-family: IBM Plex Sans
+    overflow-y: scroll
+
+
+.App
+   max-height: 100%
+
+@supports (scrollbar-color: auto)
+         body, .messages
+            scrollbar-color: $blue
+         .inputRow>textarea
+            scrollbar-width: none
+@supports selector(::-webkit-scrollbar)
+        body, .messages
+            &::-webkit-scrollbar
+                background-color: $grey
+                width: 5px
+            &::-webkit-scrollbar-track
+                 box-shadow: inset 0 0 5px $grey
+                 border-radius: 10px
+            &::-webkit-scrollbar-thumb
+                 background: $blue
+                 border-radius: 10px 
+        .inputRow>textarea::-webkit-scrollbar
+            display: none
+                
+button
+    cursor: pointer
+    background-color: $blue
+    color: #ffff
+    box-shadow: 0px 1px 1px 0px #FFFFFF66 inset
+    padding: adaptSize(14px) adaptSize(24px) adaptSize(14px) adaptSize(24px)
+    gap: 10px
+    border-radius: 8px
+    outline: none
+    border: none
+    font-size: adaptSize(16px)
+    transition: background-color 0.2s linear
+    &:hover
+      background-color: #1c63f24b
+.midjorney
+    width: 100%
+    @media screen and (min-width: 1081px) 
+      @include isline(row)
+      &>div
+         width: 30%
+    @media screen and (max-width: 1080px) 
+      @include isline(column)
+      &>div
+        width: 80%
+      &>img
+        width: 65%
+    justify-content: center
+    align-items: center
+    gap: 100px
+    &>div
+        margin-bottom: 10px
+        height: auto
+        @include isline(column)
+        @media screen and (max-width: 1080px)
+              align-items: center
+        &>h2
+          @include clear_margin()
+          margin-bottom: 2.5vh
+          @media screen and (min-width: 1081px)
+              text-align: left
+          @media screen and (max-width: 1080px)
+              text-align: center
+        &>p
+          margin-bottom: 1vh
+        &>button
+          text-align: center
+          width: 40%
+          padding: adaptSize(14px)
+          font-weight: 400
+          margin-top: adaptSize(15px)
+    & img
+      width: adaptSize(600px)
+      height: auto
+    margin-bottom: 100px
